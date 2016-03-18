@@ -35,7 +35,7 @@
 
 
 .jumbotron {
-    background-image: url(websource/UWT%202.jpg), url(websource/UWT.jpg);
+    background-image: url(../assets/websource/UWT%202.jpg), url(../assets/websource/UWT.jpg);
     height: 500px;
     background-repeat: repeat-y;
     background-position: top left, top right;

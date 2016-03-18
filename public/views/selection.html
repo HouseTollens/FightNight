@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <script type = 'text/javascript' src="js/NewCharacterSelect.js"></script>
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <script type = 'text/javascript' src="../js/NewCharacterSelect.js"></script>
+    <link rel="stylesheet" type="text/css" href="../style/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js"></script>
@@ -11,7 +11,7 @@
 </head>
 <style>
     body {
-        background-image: url("charSelection/charSelectBack.jpg");
+        background-image: url("../assets/charSelection/charSelectBack.jpg");
         background-repeat: no-repeat;
         -webkit-background-size: cover;
         -moz-background-size: cover;
@@ -38,23 +38,23 @@
     <div class="col-md-2">
         <div id="Nick" class="box">
             <div
-                    class="thumbnail"> <img src="websource/Nick.png" >
+                    class="thumbnail"> <img src="../assets/websource/Nick.png" >
             </div>
             <script type="text/javascript">
-                var selectionScreenThemeSong = new Audio("./ost/maintheme.mp3");
+                var selectionScreenThemeSong = new Audio("../assets/ost/maintheme.mp3");
                 selectionScreenThemeSong.play();
                 localStorage.setItem("playerOne", "Nick");
                 localStorage.setItem("playerTwo", "Jon");
-                var playerOne = new Audio("./sound/misc/PlayerOne.mp3");
-                var playerTwo = new Audio("./sound/misc/PlayerTwo.mp3");
+                var playerOne = new Audio("../assets/sound/misc/PlayerOne.mp3");
+                var playerTwo = new Audio("../assets/sound/misc/PlayerTwo.mp3");
                 $("#Nick").click(function() {
                     if (asdf < 2) {
                         localStorage.removeItem("playerOne");
                         localStorage.setItem("playerOne", "Nick");
                         var $Select = $('#PlayerOneSelected');
                         $Select.show();
-                        var nickE = new Audio("./sound/NickSound/NickVictory.mp3");
-                        $Select.html('<div class="thumbnail"> <img src="./websource/NickVictory.gif" > </div>');
+                        var nickE = new Audio("../assets/sound/NickSound/NickVictory.mp3");
+                        $Select.html('<div class="thumbnail"> <img src="../assets/websource/NickVictory.gif" > </div>');
                         var timeoutID = window.setTimeout(nickPlay, 2000);
                         function nickPlay() {
                             nickE.play();
@@ -68,8 +68,8 @@
                         localStorage.setItem("playerTwo", "Nick");
                         var $Select = $('#PlayerTwoSelected');
                         $Select.show();
-                        $Select.html('<div class="thumbnail"> <img src="./websource/NickVictory.gif" > </div>');
-                        var nickE = new Audio("./sound/NickSound/NickVictory.mp3");
+                        $Select.html('<div class="thumbnail"> <img src="../assets/websource/NickVictory.gif" > </div>');
+                        var nickE = new Audio("../assets/sound/NickSound/NickVictory.mp3");
                         var timeoutID = window.setTimeout(nickPlay, 2000);
                         function nickPlay() {
                             nickE.play();
@@ -83,7 +83,7 @@
     </div>
     <div class="col-md-2">
         <div id="Chris" class="box"> <div
-                class="thumbnail"> <img src="websource/Chris.png" >
+                class="thumbnail"> <img src="../assets/websource/Chris.png" >
         </div>
             <script type="text/javascript">
                 $("#Chris").click(function() {
@@ -92,8 +92,8 @@
                         localStorage.setItem("playerOne", "Chris");
                         var $Select = $('#PlayerOneSelected');
                         $Select.show();
-                        $Select.html('<div class="thumbnail"> <img src="./websource/ChrisVictory.gif" > </div>');
-                        var chrisE = new Audio("./sound/ChrisSound/ChrisVictory.mp3");
+                        $Select.html('<div class="thumbnail"> <img src="../assets/websource/ChrisVictory.gif" > </div>');
+                        var chrisE = new Audio("../assets/sound/ChrisSound/ChrisVictory.mp3");
                         var timeoutID = window.setTimeout(chrisPlay, 2000);
                         function chrisPlay() {
                             chrisE.play();
@@ -103,8 +103,8 @@
                         localStorage.setItem("playerTwo", "Chris");
                         var $Select = $('#PlayerTwoSelected');
                         $Select.show();
-                        $Select.html('<div class="thumbnail"> <img src="./websource/ChrisVictory.gif" > </div>');
-                        var chrisE = new Audio("./sound/ChrisSound/ChrisVictory.mp3");
+                        $Select.html('<div class="thumbnail"> <img src="../assets/websource/ChrisVictory.gif" > </div>');
+                        var chrisE = new Audio("../assets/sound/ChrisSound/ChrisVictory.mp3");
                         var timeoutID = window.setTimeout(chrisPlay, 2000);
                         function chrisPlay() {
                             chrisE.play();
@@ -117,7 +117,7 @@
     </div>
     <div class="col-md-2">
         <div id="Jon" class="box"> <div
-                class="thumbnail"> <img src="websource/Jon.png" >
+                class="thumbnail"> <img src="../assets/websource/Jon.png" >
         </div>
             <script type="text/javascript">
                 $("#Jon").click(function() {
@@ -126,8 +126,8 @@
                         localStorage.setItem("playerOne", "Jon");
                         var $Select = $('#PlayerOneSelected');
                         $Select.show();
-                        $Select.html('<div class="thumbnail"> <img src="./websource/JonVictory.gif" > </div>');
-                        var jonE = new Audio("./sound/JonSound/JonVictory.mp3");
+                        $Select.html('<div class="thumbnail"> <img src="../assets/websource/JonVictory.gif" > </div>');
+                        var jonE = new Audio("../assets/sound/JonSound/JonVictory.mp3");
                         var timeoutID = window.setTimeout(jonPlay, 2000);
                         function jonPlay() {
                             jonE.play();
@@ -136,9 +136,9 @@
                     } else {
                         localStorage.setItem("playerTwo", "Jon");
                         var $Select = $('#PlayerTwoSelected');
-                        $Select.html('<div class="thumbnail"> <img src="./websource/JonVictory.gif" > </div>');
+                        $Select.html('<div class="thumbnail"> <img src="../assets/websource/JonVictory.gif" > </div>');
                         $Select.show();
-                        var jonE = new Audio("./sound/JonSound/JonVictory.mp3");
+                        var jonE = new Audio("../assets/sound/JonSound/JonVictory.mp3");
                         var timeoutID = window.setTimeout(jonPlay, 2000);
                         function jonPlay() {
                             jonE.play();
@@ -151,7 +151,7 @@
     </div>
     <div class="col-md-2">
         <div id="Matt" class="box"><div
-                class="thumbnail"> <img src="websource/Matt.png" >
+                class="thumbnail"> <img src="../assets/websource/Matt.png" >
         </div>
             <script type="text/javascript">
                 $("#Matt").click(function() {
@@ -159,9 +159,9 @@
                         localStorage.removeItem("playerOne");
                         localStorage.setItem("playerOne", "Matt");
                         var $Select = $('#PlayerOneSelected');
-                        $Select.html('<div class="thumbnail"> <img src="./websource/MattVictory.gif" > </div>');
+                        $Select.html('<div class="thumbnail"> <img src="../assets/websource/MattVictory.gif" > </div>');
                         $Select.show();
-                        var mattE = new Audio("./sound/MattSound/MattVictory.mp3");
+                        var mattE = new Audio("../assets/sound/MattSound/MattVictory.mp3");
                         var timeoutID = window.setTimeout(mattPlay, 2000);
                         function mattPlay() {
                             mattE.play();
@@ -170,9 +170,9 @@
                     } else {
                         localStorage.setItem("playerTwo", "Matt");
                         var $Select = $('#PlayerTwoSelected');
-                        $Select.html('<div class="thumbnail"> <img src="./websource/MattVictory.gif" > </div>');
+                        $Select.html('<div class="thumbnail"> <img src="../assets/websource/MattVictory.gif" > </div>');
                         $Select.show();
-                        var mattE = new Audio("./sound/MattSound/MattVictory.mp3");
+                        var mattE = new Audio("../assets/sound/MattSound/MattVictory.mp3");
                         var timeoutID = window.setTimeout(mattPlay, 2000);
                         function mattPlay() {
                             mattE.play();
@@ -186,7 +186,7 @@
 
     <div class="col-md-2">
         <div id="Chinn" class="box"><div
-                class="thumbnail"> <img src="websource/DrChinn.png" >
+                class="thumbnail"> <img src="../assets/websource/DrChinn.png" >
         </div>
             <script type="text/javascript">
                 $("#Chinn").click(function() {
@@ -194,13 +194,13 @@
                         localStorage.removeItem("playerOne");
                         localStorage.setItem("playerOne", "DrChinn");
                         var $Select = $('#PlayerOneSelected');
-                        $Select.html('<div class="thumbnail"> <img src="./websource/DrChinnVictory.gif" > </div>');
+                        $Select.html('<div class="thumbnail"> <img src="../assets/websource/DrChinnVictory.gif" > </div>');
                         $Select.show();
                         playerOne.play();
                     } else {
                         localStorage.setItem("playerTwo", "DrChinn");
                         var $Select = $('#PlayerTwoSelected');
-                        $Select.html('<div class="thumbnail"> <img src="./websource/DrChinnVictory.gif" > </div>');
+                        $Select.html('<div class="thumbnail"> <img src="../assets/websource/DrChinnVictory.gif" > </div>');
                         $Select.show();
                         playerTwo.play();
                     }
@@ -211,7 +211,7 @@
 
     <div class="col-md-2">
         <div id="Tolentino" class="box"><div
-                class="thumbnail"> <img src="websource/DrT.png" >
+                class="thumbnail"> <img src="../assets/websource/DrT.png" >
         </div>
             <script type="text/javascript">
                 $("#Tolentino").click(function() {
@@ -219,13 +219,13 @@
                         localStorage.removeItem("playerOne");
                         localStorage.setItem("playerOne", "DrTolentino");
                         var $Select = $('#PlayerOneSelected');
-                        $Select.html('<div class="thumbnail"> <img src="./websource/DrTVictory.gif" > </div>');
+                        $Select.html('<div class="thumbnail"> <img src="../assets/websource/DrTVictory.gif" > </div>');
                         $Select.show();
                         playerOne.play();
                     } else {
                         localStorage.setItem("playerTwo", "DrTolentino");
                         var $Select = $('#PlayerTwoSelected');
-                        $Select.html('<div class="thumbnail"> <img src="./websource/DrTVictory.gif" > </div>');
+                        $Select.html('<div class="thumbnail"> <img src="../assets/websource/DrTVictory.gif" > </div>');
                         $Select.show();
                         playerTwo.play();
                     }

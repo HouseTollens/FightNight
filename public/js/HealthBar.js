@@ -24,7 +24,7 @@ HealthBar.prototype.setHealth = function(health) {
 
 HealthBar.prototype.draw = function() {
 
-    var score = this.assets.getAsset("./img/score/score.png");
+    var score = this.assets.getAsset("../assets/img/score/score.png");
 
 
 
@@ -37,7 +37,7 @@ HealthBar.prototype.draw = function() {
 
             for (var i = 0; i < currentScoreArray.length; i++) {
 
-                var current = this.assets.getAsset("./img/score/" + currentScoreArray[i] + ".png");
+                var current = this.assets.getAsset("../assets/img/score/" + currentScoreArray[i] + ".png");
                 var newX = (this.x) + 250 + (i * current.width) + score.width + current.width;
                 var newY = score.height;
                 this.ctx.drawImage(current, newX, newY + 10);
@@ -45,7 +45,7 @@ HealthBar.prototype.draw = function() {
             }
         }else{
 
-            var current = this.assets.getAsset("./img/score/0.png");
+            var current = this.assets.getAsset("../assets/img/score/0.png");
             var newX = (this.x) + 250 + score.width + current.width;
             var newY = score.height;
             this.ctx.drawImage(current, newX, newY + 10);
@@ -64,14 +64,14 @@ HealthBar.prototype.draw = function() {
 
             for (var i = 0; i < currentScoreArray.length; i++) {
 
-                var current = this.assets.getAsset("./img/score/" + currentScoreArray[i] + ".png");
+                var current = this.assets.getAsset("../assets/img/score/" + currentScoreArray[i] + ".png");
                 var newX = (newWidth - score.width) - 550 + (i * current.width) + score.width + current.width;
                 var newY = score.height;
                 this.ctx.drawImage(current, newX, newY + 10);
 
             }
         }else{
-            var current = this.assets.getAsset("./img/score/0.png");
+            var current = this.assets.getAsset("../assets/img/score/0.png");
             var newX = (newWidth - score.width) - 550 + score.width + current.width;
             var newY = score.height;
             this.ctx.drawImage(current, newX, newY + 10);
@@ -91,7 +91,7 @@ HealthBar.prototype.draw = function() {
             this.bloodX = this.chara.x+100;
             this.bloodY = this.chara.y;
 
-            var img = this.assets.getAsset("./img/blood/"+this.bloodCount+".gif");
+            var img = this.assets.getAsset("../assets/img/blood/"+this.bloodCount+".gif");
 
             this.ctx.drawImage(img,this.bloodX,this.bloodY );
 
@@ -103,7 +103,7 @@ HealthBar.prototype.draw = function() {
             this.bloodX =  this.bloodX--;
             this.bloodY = this.bloodY + 10;
 
-            var img = this.assets.getAsset("./img/blood/"+this.bloodCount+".gif");
+            var img = this.assets.getAsset("../assets/img/blood/"+this.bloodCount+".gif");
 
             this.ctx.drawImage(img,this.bloodX,this.bloodY );
 
@@ -117,20 +117,20 @@ HealthBar.prototype.draw = function() {
     }
 
     if(this.name === "Matt"){
-        var img = this.assets.getAsset("./img/logo/mattlogo.png");
+        var img = this.assets.getAsset("../assets/img/logo/mattlogo.png");
     }
     else if(this.name === "Jon"){
-        var img = this.assets.getAsset("./img/logo/jonlogo.png");
+        var img = this.assets.getAsset("../assets/img/logo/jonlogo.png");
     }
     else if(this.name === "Nick"){
-        var img = this.assets.getAsset("./img/logo/nicklogo.png");
+        var img = this.assets.getAsset("../assets/img/logo/nicklogo.png");
     }else if(this.name === "Chris"){
-        var img = this.assets.getAsset("./img/logo/chrislogo.png");
+        var img = this.assets.getAsset("../assets/img/logo/chrislogo.png");
     }
     else if(this.name === "DrChinn"){
-        var img = this.assets.getAsset("./img/logo/drchinnlogo.png");
+        var img = this.assets.getAsset("../assets/img/logo/drchinnlogo.png");
     }else{
-        var img = this.assets.getAsset("./img/logo/drtolentinologo.png");
+        var img = this.assets.getAsset("../assets/img/logo/drtolentinologo.png");
     }
 
     if(this.chara.playerNumber === 1){
@@ -143,7 +143,7 @@ HealthBar.prototype.draw = function() {
     }
 
     if(this.chara.hitCounter>=3 && this.chara.hitCounter <16){
-        var img = this.assets.getAsset("./img/combo/"+this.chara.hitCounter+".png");
+        var img = this.assets.getAsset("../assets/img/combo/"+this.chara.hitCounter+".png");
         var myX = this.chara.x;
         var myY = this.chara.y;
         var count = this.chara.hitCounter;
@@ -153,7 +153,7 @@ HealthBar.prototype.draw = function() {
 
         this.ctx.drawImage(img,x,y);
     }if(this.chara.hitCounter >=16){
-        var img = this.assets.getAsset("./img/combo/health.png");
+        var img = this.assets.getAsset("../assets/img/combo/health.png");
         var myX = this.chara.x;
         var myY = this.chara.y;
         var x = Math.floor(Math.random() * ((myX-50) - (myX-100) + 1)) + myX-100;

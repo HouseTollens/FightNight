@@ -11,10 +11,10 @@ function Assets() {
 Assets.prototype.queueDownload = function (path) {
     console.log("Queueing " + path);
     this.downloadQueue.push(path);
-}
+};
 Assets.prototype.isDone = function() {
     return this.downloadQueue.length === this.successCount + this.errorCount;
-}
+};
 Assets.prototype.downloadAll = function(callback) {
     for (var i = 0; i < this.downloadQueue.length; i++) {
 
