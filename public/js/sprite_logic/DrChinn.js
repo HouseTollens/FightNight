@@ -48,7 +48,7 @@ DrChinn.prototype.throwBook = function(){
     } else {
         start_x = this.x - 40;
     }
-    gameEngine.addBook(new Book(this.game, assets.getAsset("./img/alg-book.png"), start_x, this.y + 100, this.playerNumber));
+    gameEngine.addBook(new Book(this.game, assets.getAsset("../assets/img/alg-book.png"), start_x, this.y + 100, this.playerNumber));
 };
 
 function Book(game, spritesheet, x, y, playerNumber) {
