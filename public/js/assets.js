@@ -9,7 +9,6 @@ function Assets() {
     this.downloadQueue = [];
 }
 Assets.prototype.queueDownload = function (path) {
-    console.log("Queueing " + path);
     this.downloadQueue.push(path);
 };
 Assets.prototype.isDone = function() {
@@ -29,14 +28,11 @@ Assets.prototype.downloadAll = function(callback) {
         var img = new Image();
        }
 
-        console.log(path);
         img.addEventListener("load", function () {
-            console.log("Loaded " + this.src);
             that.successCount++;
             if (that.isDone()) callback();
         });
         img.addEventListener("error", function () {
-            console.log("Error loading " + this.src);
             that.errorCount++;
             if (that.isDone()) callback();
         });
