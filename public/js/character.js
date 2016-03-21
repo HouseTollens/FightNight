@@ -564,47 +564,24 @@ Character.prototype.checkHit = function(){
             }
         }
     }
-}
+};
 
 Character.prototype.isMyOpponentReallyHittingMe = function(){
 
-    if(this.opponent.isBlocking)
-        return false;
-    else if(this.opponent.isCrouching)
-        return false;
-    else if(this.opponent.isHoldingBlock)
-        return false;
-    else if(this.opponent.isHoldingCrouch)
-        return false;
-    else if(this.opponent.isJumping)
-        return false;
-    else if(this.opponent.isFalling)
-        return false;
-    else
-        return true;
-
-
-}
-
-Character.prototype.amIhittable = function(){
-
-    if(this.isBlocking)
-        return true;
-    else if(this.isCrouching)
-        return true;
-    else if(this.isHoldingBlock)
-        return true;
-    else if(this.isHoldingCrouch)
-        return true;
-    else if(this.isJumping)
-        return true;
-    else if(this.isFalling)
-        return true;
-   else
-    return false;
-
+  return !(this.isBlocking || this.isCrouching
+  || this.isHoldingBlock || this.isHoldingCrouch
+  || this.isJumping || this.isFalling);
 
 };
+
+Character.prototype.amIhittable = function(){
+  
+  return (this.isBlocking || this.isCrouching
+  || this.isHoldingBlock || this.isHoldingCrouch
+  || this.isJumping || this.isFalling);
+
+};
+
 Character.prototype.distance = function(a, b) {
     var dx = a.x - b.x;
     //var dy = a.y - b.y;
