@@ -84,7 +84,7 @@ class Book {
     return Math.sqrt(dx * dx + dy * dy);
   }
 
-  colide(other) {
+  collide(other) {
     return this.distance(this, other) < 370 / 4;
   }
 }
