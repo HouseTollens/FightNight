@@ -5,7 +5,6 @@ app.engine('html', require('ejs').renderFile);
 
 // use statements
 app.use('/', express.static(__dirname + '/public'));
-app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
 // set statements
 app.set('view engine', 'html');
