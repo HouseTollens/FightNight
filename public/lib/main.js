@@ -348,6 +348,7 @@ assets.queueDownload("../assets/sound/hb.mp3");
 assets.downloadAll(function () {
   var canvas = document.getElementById("gameCanvas");
   var ctx = canvas.getContext("2d");
+
   gameEngine.init(ctx);
   canvas.addEventListener("keydown", keyDownHandler, false);
   canvas.addEventListener("keyup", keyUpHandler, false);
