@@ -7,82 +7,88 @@
  * I'm really doing it guys - Matt
  * Testing my commits - Jon
  */
-function Animate(spriteSheet, startX, startY, frameWidth, frameHeight, frameDuration, frames, loop, reverse) {
-  this.spriteSheet = spriteSheet;
-  this.startX = startX;
-  this.startY = startY;
-  this.frameWidth = frameWidth;
-  this.frameHeight = frameHeight;
-  this.frameDuration = frameDuration;
-  this.frames = frames;
-  this.totalTime = frameDuration * this.frames;
-  this.elapsedTime = 0;
-  this.loop = loop;
-  this.reverse = reverse;
-}
-Animate.prototype.drawFrame = function (tick, ctx, x, y) {
-  this.elapsedTime += tick;
-  if (this.isDone()) {
-    if (this.loop) this.elapsedTime = 0;
+
+class Animate {
+  constructor(spriteSheet, startX, startY, frameWidth, frameHeight, frameDuration, frames, loop, reverse) {
+    this.spriteSheet = spriteSheet;
+    this.startX = startX;
+    this.startY = startY;
+    this.frameWidth = frameWidth;
+    this.frameHeight = frameHeight;
+    this.frameDuration = frameDuration;
+    this.frames = frames;
+    this.totalTime = frameDuration * this.frames;
+    this.elapsedTime = 0;
+    this.loop = loop;
+    this.reverse = reverse;
   }
 
-  var frame = Math.abs(this.reverse ? this.frames - this.currentFrame() - 1 : this.currentFrame());
-  var xindex = Math.abs((frame % this.frames));
+  drawFrame(tick, ctx, x, y) {
+    this.elapsedTime += tick;
+    if (this.isDone()) {
+      if (this.loop) this.elapsedTime = 0;
+    }
 
-  ctx.drawImage(this.spriteSheet,
-    (xindex * this.frameWidth) + this.startX,
-    this.startY,
-    this.frameWidth,
-    this.frameHeight,
-    x, y,
-    this.frameWidth,
-    this.frameHeight);
-};
+    var frame = Math.abs(this.reverse ? this.frames - this.currentFrame() - 1 : this.currentFrame());
+    var xindex = Math.abs((frame % this.frames));
 
-Animate.prototype.drawBook = function (tick, ctx, x, y) {
-  this.elapsedTime += tick;
-  if (this.isDone()) {
-    if (this.loop) this.elapsedTime = 0;
+    ctx.drawImage(this.spriteSheet,
+      (xindex * this.frameWidth) + this.startX,
+      this.startY,
+      this.frameWidth,
+      this.frameHeight,
+      x, y,
+      this.frameWidth,
+      this.frameHeight);
   }
-  var frame = this.currentFrame() + 1;
-  var x_param, y_param, w, h;
-  if (frame === 1) {
-    x_param = 0;
-    y_param = 0;
-    w = 400;
-    h = 500;
-  } else if (frame === 2) {
-    x_param = 835;
-    y_param = 0;
-    w = 500;
-    h = 400;
-  } else if (frame === 3) {
-    x_param = 420;
-    y_param = 0;
-    w = 400;
-    h = 500;
-  } else if (frame === 4) {
-    x_param = 835;
-    y_param = 420;
-    w = 500;
-    h = 400;
+
+  drawBook(tick, ctx, x, y) {
+    this.elapsedTime += tick;
+    if (this.isDone()) {
+      if (this.loop) this.elapsedTime = 0;
+    }
+    var frame = this.currentFrame() + 1;
+    var x_param, y_param, w, h;
+    if (frame === 1) {
+      x_param = 0;
+      y_param = 0;
+      w = 400;
+      h = 500;
+    } else if (frame === 2) {
+      x_param = 835;
+      y_param = 0;
+      w = 500;
+      h = 400;
+    } else if (frame === 3) {
+      x_param = 420;
+      y_param = 0;
+      w = 400;
+      h = 500;
+    } else if (frame === 4) {
+      x_param = 835;
+      y_param = 420;
+      w = 500;
+      h = 400;
+    }
+    ctx.drawImage(this.spriteSheet,
+      x_param,
+      y_param,
+      w,
+      h,
+      x, y,
+      w * 0.13,
+      h * 0.13);
   }
-  ctx.drawImage(this.spriteSheet,
-    x_param,
-    y_param,
-    w,
-    h,
-    x, y,
-    w * 0.13,
-    h * 0.13);
-};
-Animate.prototype.currentFrame = function () {
-  return Math.floor(this.elapsedTime / this.frameDuration);
-};
-Animate.prototype.isDone = function () {
-// multiplied totalTime by 0.9 here to fix the flickering animations. No problems so far.
-  return (this.elapsedTime >= this.totalTime * 0.9);
-};
+
+  currentFrame() {
+    return Math.floor(this.elapsedTime / this.frameDuration);
+  }
+
+  isDone() {
+    return (this.elapsedTime >= this.totalTime * 0.9);
+  }
+} // End of Animate Class
+
 function loadCharacters() {
   if (localStorage.getItem("playerOne") === "Nick") {
     characters.push(new Nick(gameEngine, assets.getAsset("../assets/img/nick.png"), 1, assets, "Nick"));
