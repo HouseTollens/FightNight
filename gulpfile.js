@@ -11,6 +11,7 @@ var merge = require('utils-merge');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
+var babel = require('gulp-babel');
 
 
 /* nicer browserify errors */
@@ -68,9 +69,24 @@ function bundle_js(bundler) {
 
 // Without watchify
 gulp.task('browserify', function () {
-    var bundler = browserify('./public/app.js', { debug: true }).transform(babelify, {presets: ["es2015", "react"]});
+    var bundler = browserify('./public/js/*.js', { debug: false }).transform(babelify, {presets: ["es2015"]});
+    return bundle_js(bundler);
+});
 
-    return bundle_js(bundler)
+gulp.task('babel', () => {
+
+    gulp.src('./public/js/*.js')
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(gulp.dest('public/lib'));
+
+    gulp.src('./public/js/sprite_logic/*.js')
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(gulp.dest('public/lib/sprite_logic'));
+
 });
 
 // Without sourcemaps
