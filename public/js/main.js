@@ -30,13 +30,13 @@ Animate.prototype.drawFrame = function (tick, ctx, x, y) {
   var xindex = Math.abs((frame % this.frames));
 
   ctx.drawImage(this.spriteSheet,
-      (xindex * this.frameWidth) + this.startX,
-      this.startY,
-      this.frameWidth,
-      this.frameHeight,
-      x, y,
-      this.frameWidth,
-      this.frameHeight);
+    (xindex * this.frameWidth) + this.startX,
+    this.startY,
+    this.frameWidth,
+    this.frameHeight,
+    x, y,
+    this.frameWidth,
+    this.frameHeight);
 };
 
 Animate.prototype.drawBook = function (tick, ctx, x, y) {
@@ -68,13 +68,13 @@ Animate.prototype.drawBook = function (tick, ctx, x, y) {
     h = 400;
   }
   ctx.drawImage(this.spriteSheet,
-      x_param,
-      y_param,
-      w,
-      h,
-      x, y,
-      w * 0.13,
-      h * 0.13);
+    x_param,
+    y_param,
+    w,
+    h,
+    x, y,
+    w * 0.13,
+    h * 0.13);
 };
 Animate.prototype.currentFrame = function () {
   return Math.floor(this.elapsedTime / this.frameDuration);
