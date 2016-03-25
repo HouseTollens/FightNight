@@ -38,8 +38,9 @@ export default class FightNight extends React.Component {
             case 'game' :
               return <Game />;
             case 'splash' :
-              return <Splash
-              />;
+              return <Splash />;
+            case 'characters' :
+              return <Character_Select />;
             default:
               return <Splash />;
 

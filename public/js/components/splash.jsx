@@ -8,7 +8,7 @@ export default class Splash extends React.Component {
   }
 
   static _handleClick() {
-    actions.startPlay();
+    actions.characterSelect();
   }
 
   render() {

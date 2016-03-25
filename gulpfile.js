@@ -23,7 +23,7 @@ function map_error(err) {
         // regular error
         gutil.log(chalk.red(err.name)
             + ': '
-            + chalk.yellow(err.fileName.replace(__dirname + '/old_public/js/', ''))
+            + chalk.yellow(err.fileName.replace(__dirname + '/public/js/', ''))
             + ': '
             + 'Line '
             + chalk.magenta(err.lineNumber)
@@ -75,17 +75,17 @@ gulp.task('browserify', function () {
 
 gulp.task('babel', () => {
     
-    return gulp.src('./old_public/js/**/*.js')
+    return gulp.src('./public/js/**/*.js')
     .pipe(babel({
         presets: ['es2015']
     }))
-    .pipe(gulp.dest('old_public/lib'));
+    .pipe(gulp.dest('public/lib'));
 
 });
 
 // Without sourcemaps
 gulp.task('browserify-production', function () {
-    var bundler = browserify('./old_public/app.js').transform(babelify, {presets: ["es2015", "react"]});
+    var bundler = browserify('./public/app.js').transform(babelify, {presets: ["es2015", "react"]});
 
     return bundler.bundle()
         .on('error', map_error)

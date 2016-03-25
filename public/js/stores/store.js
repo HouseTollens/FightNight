@@ -38,6 +38,10 @@ AppDispatcher.register((payload) => {
       fightnightstore.emit(constants.CHANGE);
       break;
 
+    case constants.CHARACTER_SELECT :
+      _stuff.page = 'characters';
+      fightnightstore.emit(constants.CHANGE);
+      break;
   }
 
 });

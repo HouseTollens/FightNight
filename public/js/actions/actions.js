@@ -21,6 +21,14 @@ actions = {
 
     });
 
+  },
+  
+  characterSelect : () => {
+    AppDispatcher.dispatch({
+
+      actionType: constants.CHARACTER_SELECT
+
+    });
   }
 
 };
