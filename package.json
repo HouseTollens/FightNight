@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/httpNick/FightNight#readme",
   "dependencies": {
+    "bootstrap": "^3.3.6",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "flux": "^2.1.1",

@@ -23,7 +23,7 @@ function map_error(err) {
         // regular error
         gutil.log(chalk.red(err.name)
             + ': '
-            + chalk.yellow(err.fileName.replace(__dirname + '/public/js/', ''))
+            + chalk.yellow(err.fileName.replace(__dirname + '/old_public/js/', ''))
             + ': '
             + 'Line '
             + chalk.magenta(err.lineNumber)
@@ -39,13 +39,13 @@ function map_error(err) {
             + chalk.yellow(err.message))
     }
 
-    this.end()
+    //this.end()
 }
 /* */
 
 gulp.task('watchify', function () {
     var args = merge(watchify.args, { debug: true });
-    var bundler = watchify(browserify('./public/app.js', args)).transform(babelify, {presets: ["es2015", "react"]});
+    var bundler = watchify(browserify('./old_public/app.js', args)).transform(babelify, {presets: ["es2015", "react"]});
     bundle_js(bundler);
 
     bundler.on('update', function () {
@@ -69,23 +69,23 @@ function bundle_js(bundler) {
 
 // Without watchify
 gulp.task('browserify', function () {
-    var bundler = browserify('./public/js/*.js', { debug: false }).transform(babelify, {presets: ["es2015"]});
+    var bundler = browserify('./public/app.jsx', { debug: false }).transform(babelify, {presets: ["es2015", "react"]});
     return bundle_js(bundler);
 });
 
 gulp.task('babel', () => {
     
-    return gulp.src('./public/js/**/*.js')
+    return gulp.src('./old_public/js/**/*.js')
     .pipe(babel({
         presets: ['es2015']
     }))
-    .pipe(gulp.dest('public/lib'));
+    .pipe(gulp.dest('old_public/lib'));
 
 });
 
 // Without sourcemaps
 gulp.task('browserify-production', function () {
-    var bundler = browserify('./public/app.js').transform(babelify, {presets: ["es2015", "react"]});
+    var bundler = browserify('./old_public/app.js').transform(babelify, {presets: ["es2015", "react"]});
 
     return bundler.bundle()
         .on('error', map_error)
@@ -93,5 +93,5 @@ gulp.task('browserify-production', function () {
         .pipe(buffer())
         .pipe(rename('bundle.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('public/build'))
+        .pipe(gulp.dest('old_public/build'))
 });
