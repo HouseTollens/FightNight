@@ -7,7 +7,7 @@ export default class Splash extends React.Component {
     super(...args);
   }
 
-  _handleClick() {
+  static _handleClick() {
     actions.startPlay();
   }
 
@@ -15,7 +15,7 @@ export default class Splash extends React.Component {
     return (
       <div className="container container-main">
         <div id="splash" className="panel panel-default fixed-panel container-canvas text-center">
-              <button type="button" className="btn btn-primary btn-xlarge" onClick={this._handleClick.bind(this)}>
+              <button type="button" className="btn btn-primary btn-xlarge" onClick={Splash._handleClick.bind(this)}>
                 Play
               </button>
           </div>

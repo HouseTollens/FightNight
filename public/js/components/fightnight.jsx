@@ -24,7 +24,7 @@ export default class FightNight extends React.Component {
 
   _onChange() {
     
-    this.setState(fightnightstore.getStuff());
+    this.setState(FightNightStore.getStuff());
 
   }
 
