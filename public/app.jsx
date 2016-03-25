@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import FightNight from './js/components/fightnight.jsx';
 
 ReactDOM.render(
-  <p>hi</p>,
+<FightNight id="FightNight"/>,
   document.getElementById('root')
 );

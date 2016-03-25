@@ -45,7 +45,7 @@ function map_error(err) {
 
 gulp.task('watchify', function () {
     var args = merge(watchify.args, { debug: true });
-    var bundler = watchify(browserify('./old_public/app.js', args)).transform(babelify, {presets: ["es2015", "react"]});
+    var bundler = watchify(browserify('./public/app.jsx', args)).transform(babelify, {presets: ["es2015", "react"]});
     bundle_js(bundler);
 
     bundler.on('update', function () {
