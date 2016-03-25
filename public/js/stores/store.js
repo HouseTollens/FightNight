@@ -1,0 +1,42 @@
+import AppDispatcher from '../dispatcher/AppDispatcher';
+import {constants} from '../constants/constants';
+import {EventEmitter} from 'events';
+
+let _stuff = {
+  page : ''
+};
+
+class FightNightStore extends EventEmitter {
+
+  addChangeListener(cb) {
+    this.on(constants.CHANGE, cb);
+  }
+
+  removeChangeListener(cb) {
+    this.removeListener(constants.CHANGE, cb);
+  }
+
+  getStuff() {
+    return _stuff;
+  }
+
+}
+
+const fightnightstore = new FightNightStore();
+
+AppDispatcher.register((payload) => {
+
+  switch(payload.actionType) {
+
+    case constants.START_PLAY :
+      _stuff.page = 'game';
+      fightnightstore.emit(constants.CHANGE);
+      break;
+
+  }
+
+});
+
+export default fightnightstore;
+
+
