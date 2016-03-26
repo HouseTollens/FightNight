@@ -15,8 +15,19 @@
   max-width: 800px;
 }
 
-.btn-primary {
+.selection-panel {
+  min-height: 540px;
+  max-height: 540px;
+  min-width: 800px;
+  max-width: 800px;
+}
+
+.middle-btn-primary {
   margin-top: 200px;
+}
+
+.select-btn-primary {
+  margin-top: 10px;
 }
 
 /**

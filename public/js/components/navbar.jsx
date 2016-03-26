@@ -7,7 +7,7 @@ export default class NavBar extends React.Component {
     super(...args);
   }
 
-  static _handleClick() {
+  _handleClick() {
 
     actions.backToSplash();
 
@@ -18,7 +18,7 @@ export default class NavBar extends React.Component {
       <nav className="navbar navbar-default navbar-static-top">
         <div className="container-fluid">
           <div className="navbar-header">
-          <a className="navbar-brand" href="#" onClick={NavBar._handleClick.bind(this)}>Fight Night 2.0</a>
+          <a className="navbar-brand" href="#" onClick={this._handleClick.bind(this)}>Fight Night 2.0</a>
           </div>
         </div>
     </nav>

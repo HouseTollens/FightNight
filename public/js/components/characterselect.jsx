@@ -1,24 +1,81 @@
 import React from 'react';
 import actions from '../actions/actions';
+import socketActions from '../actions/socketActions';
+import characters from '../res/characters.json';
 
-export default class Character_Select extends React.Component {
+export default class CharacterSelect extends React.Component {
 
   constructor(...args) {
     super(...args);
+    this.props = args;
   }
 
-  static _handleClick() {
+  _handlePlay() {
+
     actions.startPlay();
+    this.state = {
+      selected : ''
+    };
+  }
+
+  _handleLock() {
+    socketActions.lockInSelection(this.state.selected, this.props.sock);
+  }
+
+  _handleSelect(character, event) {
+
+    event.preventDefault();
+
+    this.setState(
+      {
+      selected : character
+      }, () => {
+        console.log(this.state);
+      }
+    );
+
   }
 
   render() {
     return (
       <div className="container container-main">
-        <div id="characters" className="panel panel-default fixed-panel container-canvas text-center">
-          <button type="button" className="btn btn-primary btn-xlarge" onClick={Character_Select._handleClick.bind(this)}>
-          </button>
+        <div id="characters" className="panel panel-default selection-panel container-canvas">
+          <div className="row">
+            {
+              characters.map((character, index) => {
+                return <div key={index} className="col-md-4 text-center">
+                  <img
+                    width="190" height="240"
+                    src={"../../res/img/"+character.name+".png"}
+                    onClick={this._handleSelect.bind(this, character.name)}
+                  />
+                </div>;
+              })
+            }
+          </div>
+          <div className="text-center">
+            <button type="button" className="btn select-btn-primary btn-warning" onClick={this._handleLock.bind(this)}>
+              Lock
+            </button>
+            <button type="button" className="btn select-btn-primary btn-warning" onClick={this._handlePlay.bind(this)}>
+              Play
+            </button>
+          </div>
         </div>
       </div>
     );
   }
 }
+
+/*
+
+ <div id="characters" className="panel panel-default fixed-panel container-canvas">
+ <ul className="no-list-style-type">
+ {
+ characters.map((item, index) => {
+ return <li key={index}>{item.name}</li>;
+ })
+ }
+ </ul>
+ </div>
+ */

@@ -11,7 +11,7 @@ export default class Game extends React.Component {
     // Load game assets etc..
   }
 
-  static _handleClick() {
+  _handleClick() {
     actions.backToSplash();
   }
 
@@ -19,7 +19,7 @@ export default class Game extends React.Component {
     return (
       <div className="container container-main">
         <div className="container-canvas">
-          <canvas id="game" tabIndex = "1" width="800" height="480" onClick={Game._handleClick.bind(this)}>
+          <canvas id="game" tabIndex = "1" width="800" height="480" onClick={this._handleClick.bind(this)}>
             game
           </canvas>
         </div>

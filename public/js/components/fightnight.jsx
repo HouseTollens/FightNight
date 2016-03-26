@@ -3,11 +3,13 @@ import NavBar from './navbar.jsx';
 import Game from './game.jsx';
 import Splash from './splash.jsx';
 import fightnightstore from '../stores/store';
+import CharacterSelect from '../components/characterselect.jsx';
 
 export default class FightNight extends React.Component {
 
   constructor(props) {
     super(props);
+    this.props = props;
     this._onChange = this._onChange.bind(this);
     this.state = {
       page : 'splash'
@@ -24,7 +26,7 @@ export default class FightNight extends React.Component {
 
   _onChange() {
     
-    this.setState(FightNightStore.getStuff());
+    this.setState(fightnightstore.getStuff());
 
   }
 
@@ -40,7 +42,7 @@ export default class FightNight extends React.Component {
             case 'splash' :
               return <Splash />;
             case 'characters' :
-              return <Character_Select />;
+              return <CharacterSelect sock={this.props.sock}/>;
             default:
               return <Splash />;
 

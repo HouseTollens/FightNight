@@ -17,19 +17,13 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.get('/selection.html', (req, res) => {
-    res.render('selection');
-});
-
-app.get('/game.html', (req, res) => {
-   res.render('game');
-});
-
 io.on('connection', (socket) => {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
+
+  socket.on('selection', (character) => {
+    console.log("A character was selected. " + character);
+    socket.emit('')
   });
+
 });
 
 server.listen(process.env.PORT || 3000, () => {

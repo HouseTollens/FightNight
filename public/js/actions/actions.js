@@ -1,7 +1,7 @@
 import AppDispatcher from '../dispatcher/AppDispatcher';
 import {constants} from '../constants/constants';
 
-actions = {
+module.exports = {
 
   startPlay : () => {
     
@@ -32,5 +32,3 @@ actions = {
   }
 
 };
-
-export default actions;

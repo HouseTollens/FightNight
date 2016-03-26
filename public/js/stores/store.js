@@ -16,7 +16,7 @@ class FightNightStore extends EventEmitter {
     this.removeListener(constants.CHANGE, cb);
   }
 
-  static getStuff() {
+  getStuff() {
     return _stuff;
   }
 
@@ -40,6 +40,10 @@ AppDispatcher.register((payload) => {
 
     case constants.CHARACTER_SELECT :
       _stuff.page = 'characters';
+      fightnightstore.emit(constants.CHANGE);
+      break;
+
+    default :
       fightnightstore.emit(constants.CHANGE);
       break;
   }
