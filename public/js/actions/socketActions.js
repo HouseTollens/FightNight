@@ -5,7 +5,6 @@ module.exports = {
 
   lockInSelection : (character, socket) => {
     socket.emit('selection', character);
-    console.log('lock action');
   }
 
 };

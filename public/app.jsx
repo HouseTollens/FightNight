@@ -4,7 +4,9 @@ import FightNight from './js/components/fightnight.jsx';
 
 var socket = io.connect('http://localhost:3000');
 
-ReactDOM.render(
-<FightNight id="FightNight" sock={socket}/>,
-  document.getElementById('root')
-);
+socket.on('playerNumber', (data) => {
+  ReactDOM.render(
+    <FightNight id="FightNight" sock={socket} playerNumber={data}/>,
+    document.getElementById('root')
+  );
+});
