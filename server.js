@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
   socket.emit('playerNumber', io.engine.clientsCount);
   socket.on('selection', (selectionData) => {
-    console.log("A character was selected. " + selectionData);
+    console.log("Player " + selectionData.playerNumber + " seleceted: " + selectionData.selected);
     socket.emit('newSelectionMade', selectionData);
   });
 

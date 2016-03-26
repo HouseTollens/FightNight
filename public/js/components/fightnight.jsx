@@ -42,7 +42,7 @@ export default class FightNight extends React.Component {
             case 'splash' :
               return <Splash />;
             case 'characters' :
-              return <CharacterSelect sock={this.props.sock}/>;
+              return <CharacterSelect sock={this.props.sock} playerNumber={this.props.playerNumber}/>;
             default:
               return <Splash />;
 

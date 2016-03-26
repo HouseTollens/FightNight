@@ -19,7 +19,13 @@ export default class CharacterSelect extends React.Component {
   }
 
   _handleLock() {
-    socketActions.lockInSelection(this.state.selected, this.props.sock);
+    socketActions.lockInSelection(
+      { 
+        selected: this.state.selected,
+        playerNumber : this.props.playerNumber
+      },
+      this.props.sock
+    );
   }
 
   _handleSelect(character, event) {
