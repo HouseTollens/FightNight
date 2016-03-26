@@ -19,9 +19,9 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
 
-  socket.on('selection', (character) => {
-    console.log("A character was selected. " + character);
-    socket.emit('')
+  socket.on('selection', (selectionData) => {
+    console.log("A character was selected. " + selectionData);
+    socket.emit('newSelectionMade', selectionData);
   });
 
 });
