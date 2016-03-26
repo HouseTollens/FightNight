@@ -12,16 +12,7 @@ app.use('/', express.static(__dirname + '/public'));
 app.set('view engine', 'html');
 app.set('views', __dirname + '/public/');
 
-// get statements
-/**
- *
- *
- *
- *
- *
- */
 app.get('/', (req, res) => {
-  var x = 1;
   res.render('index');
 });
 
