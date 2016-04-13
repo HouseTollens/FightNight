@@ -42,6 +42,7 @@ export default class CharacterSelect extends React.Component {
 
   }
 
+  //Testing a commit
   render() {
     return (
       <div className="container container-main">
